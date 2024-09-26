@@ -1,0 +1,108 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "paths": {
+      "@app/knex": [
+        "libs/knex/src"
+      ],
+      "@app/knex/*": [
+        "libs/knex/src/*"
+      ],
+      "@app/shared": [
+        "libs/shared/src"
+      ],
+      "@app/shared/*": [
+        "libs/shared/src/*"
+      ],
+      "@app/auth": [
+        "libs/auth/src"
+      ],
+      "@app/auth/*": [
+        "libs/auth/src/*"
+      ],
+      "@app/operations": [
+        "libs/operations/src"
+      ],
+      "@app/operations/*": [
+        "libs/operations/src/*"
+      ],
+      "@app/transactions": [
+        "libs/transactions/src"
+      ],
+      "@app/transactions/*": [
+        "libs/transactions/src/*"
+      ],
+      "@app/accounts": [
+        "libs/accounts/src"
+      ],
+      "@app/accounts/*": [
+        "libs/accounts/src/*"
+      ],
+      "@app/notifications": [
+        "libs/notifications/src"
+      ],
+      "@app/notifications/*": [
+        "libs/notifications/src/*"
+      ],
+      "@app/activities": [
+        "libs/activities/src"
+      ],
+      "@app/activities/*": [
+        "libs/activities/src/*"
+      ],
+      "@app/medias": [
+        "libs/medias/src"
+      ],
+      "@app/medias/*": [
+        "libs/medias/src/*"
+      ],
+      "@app/translations": [
+        "libs/translations/src"
+      ],
+      "@app/translations/*": [
+        "libs/translations/src/*"
+      ],
+      "@app/translation-keys": [
+        "libs/translation-keys/src"
+      ],
+      "@app/translation-keys/*": [
+        "libs/translation-keys/src/*"
+      ],
+      "@app/settings": [
+        "libs/settings/src"
+      ],
+      "@app/settings/*": [
+        "libs/settings/src/*"
+      ],
+      "@app/export": [
+        "libs/settings/src"
+      ],
+      "@app/export/*": [
+        "libs/settings/src/*"
+      ],
+      "@app/error-logs": [
+        "libs/error-logs/src"
+      ],
+      "@app/error-logs/*": [
+        "libs/error-logs/src/*"
+      ]
+    }
+  }
+}

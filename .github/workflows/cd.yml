@@ -1,0 +1,65 @@
+name: CD PRODUCTION PIPELINE
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20.11.0
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node...
+        uses: actions/checkout@v3
+      - name: Use Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - name: Install pnpm
+        run: npm install -g pnpm@8
+      - name: Install dependencies...
+        run: pnpm install --frozen-lockfile
+      - name: Build app
+        run: pnpm build
+        env:
+          CI: true
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploying app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          debug: true
+          script: |
+            cd /var/www/qarzdaftar/api
+            pm2 stop qarz-daftar-api
+            git pull
+            export NPM_TOKEN=${{ secrets.NPM_TOKEN }}
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            export NODE_ENV=development
+            pnpm install
+            export NODE_ENV=production
+            pnpm build
+            pm2 start ecosystem.config.js

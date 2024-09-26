@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true
+  },
+  "projects": {
+    "knex": {
+      "type": "library",
+      "root": "libs/knex",
+      "entryFile": "index",
+      "sourceRoot": "libs/knex/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/knex/tsconfig.lib.json"
+      }
+    },
+    "shared": {
+      "type": "library",
+      "root": "libs/shared",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "auth": {
+      "type": "library",
+      "root": "libs/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/auth/tsconfig.lib.json"
+      }
+    },
+    "operations": {
+      "type": "library",
+      "root": "libs/operations",
+      "entryFile": "index",
+      "sourceRoot": "libs/operations/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/operations/tsconfig.lib.json"
+      }
+    },
+    "accounts": {
+      "type": "library",
+      "root": "libs/accounts",
+      "entryFile": "index",
+      "sourceRoot": "libs/accounts/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/accounts/tsconfig.lib.json"
+      }
+    },
+    "notifications": {
+      "type": "library",
+      "root": "libs/notifications",
+      "entryFile": "index",
+      "sourceRoot": "libs/notifications/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/notifications/tsconfig.lib.json"
+      }
+    },
+    "activities": {
+      "type": "library",
+      "root": "libs/activities",
+      "entryFile": "index",
+      "sourceRoot": "libs/activities/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/activities/tsconfig.lib.json"
+      }
+    },
+    "medias": {
+      "type": "library",
+      "root": "libs/medias",
+      "entryFile": "index",
+      "sourceRoot": "libs/medias/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/medias/tsconfig.lib.json"
+      }
+    },
+    "translations": {
+      "type": "library",
+      "root": "libs/translations",
+      "entryFile": "index",
+      "sourceRoot": "libs/translations/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/translations/tsconfig.lib.json"
+      }
+    },
+    "translation-keys": {
+      "type": "library",
+      "root": "libs/translation-keys",
+      "entryFile": "index",
+      "sourceRoot": "libs/translation-keys/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/translation-keys/tsconfig.lib.json"
+      }
+    },
+    "settings": {
+      "type": "library",
+      "root": "libs/settings",
+      "entryFile": "index",
+      "sourceRoot": "libs/settings/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/settings/tsconfig.lib.json"
+      }
+    },
+    "export": {
+      "type": "library",
+      "root": "libs/export",
+      "entryFile": "index",
+      "sourceRoot": "libs/export/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/export/tsconfig.lib.json"
+      }
+    },
+    "error-logs": {
+      "type": "library",
+      "root": "libs/error-logs",
+      "entryFile": "index",
+      "sourceRoot": "libs/error-logs/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/error-logs/tsconfig.lib.json"
+      }
+    }
+  }
+}
